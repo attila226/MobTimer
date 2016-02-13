@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mob Timmer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- 1. Load libraries -->
-    <script src="http://code.angularjs.org/2.0.0-beta.6/angular2-polyfills.js"></script>
-    <script src="http://code.angularjs.org/2.0.0-beta.6/Rx.umd.js"></script>
-    <script src="http://code.angularjs.org/2.0.0-beta.6/angular2-all.umd.dev.js"></script>
+    <title>Mob Timer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
 
-    <!-- 2. Load our 'modules' -->
-    <script src='app/app.component.js'></script>
-    <script src='app/main.js'></script>
+    <!-- 1. Load libraries -->
+    <script src="https://code.angularjs.org/2.0.0-beta.6/angular2-polyfills.js"></script>
+    <script src="https://code.angularjs.org/tools/system.js"></script>
+    <script src="https://code.angularjs.org/tools/typescript.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.6/Rx.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.6/angular2.dev.js"></script>
+
+    <!-- 2. Configure SystemJS -->
+    <script>
+      System.config({
+        transpiler: 'typescript', 
+        typescriptOptions: { emitDecoratorMetadata: true }, 
+        packages: {'app': {defaultExtension: 'ts'}} 
+      });
+      System.import('app/main')
+            .then(null, console.error.bind(console));
+    </script>
 
   </head>
 
@@ -21,3 +30,10 @@
   </body>
 
 </html>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
