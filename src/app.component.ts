@@ -4,12 +4,11 @@ import {Moblist} from './moblist/moblist';
 import {Interval} from './interval/interval';
 
 @Component({
-	selector: 'my-app'
+	selector: 'my-app',
+    templateUrl: './src/app.html',
+    directives: [Timer, Moblist, Interval] 
 })
-@View({
-  template: '<h1>This is the root</h1> <timer></timer><moblist></moblist><interval></interval>',
-  directives: [Timer, Moblist, Interval] 
-})
+
 export class AppComponent { 
     
 }
