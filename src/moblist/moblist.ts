@@ -8,15 +8,21 @@ import {COMMON_DIRECTIVES} from 'angular2/common';
 })
 
 export class Moblist {
-    list: string[] =  ['Bevis', 'Butthead', 'Jerkface'];    
+    mobberList: string[] = [];   
+    
+    add(mobber: any){
+        this.mobberList.push(mobber.value);
+        
+        mobber.value = '';
+    }
     
     move(idx: number, step: number) {
-        var tmp = this.list[idx];
-        this.list[idx] = this.list[idx - step];
-        this.list[idx - step] = tmp;
+        var tmp = this.mobberList[idx];
+        this.mobberList[idx] = this.mobberList[idx - step];
+        this.mobberList[idx - step] = tmp;
     }
   
     remove(idx: number) {
-	   this.list.splice(idx, 1); 
+	   this.mobberList.splice(idx, 1); 
     }   
 }

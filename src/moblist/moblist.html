@@ -1,9 +1,11 @@
+<input #mobber type="text"> <button (click)="add(mobber)">add</button>
+
 Mobbers:
 <ul>
-<li *ngFor="#item of list; #idx = index">
+<li *ngFor="#item of mobberList; #idx = index">
     {{item}} 
-    <button *ngIf="idx > 0" (click)="move(idx, 1)">Up</button>
-    <button *ngIf="idx < list.length - 1" (click)="move(idx, -1)">Down</button>
+    <button [disabled]="idx === 0" (click)="move(idx, 1)">Up</button>
+    <button [disabled]="idx === mobberList.length - 1" (click)="move(idx, -1)">Down</button>
     <button (click)="remove(idx)">Remove</button>
 </li>
 </ul>
