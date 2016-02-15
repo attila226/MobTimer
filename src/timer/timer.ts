@@ -18,6 +18,7 @@ export class Timer {
             this.setTime(this.time);
             
             //Not the THIS that we're looking for
+            //https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval
             if(this.time > 0 && this.isTimerRunning){
                 this.time--;
             }    
