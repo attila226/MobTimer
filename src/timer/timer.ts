@@ -5,4 +5,6 @@ import {Component, View} from 'angular2/core';
   templateUrl: './src/timer/timer.html' 
 })
 
-export class Timer { }
+export class Timer {
+    time: int = 5;
+ }
