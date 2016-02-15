@@ -1,10 +1,8 @@
-import {Component, View } from 'angular2/core';
-import {COMMON_DIRECTIVES} from 'angular2/common';
+import {Component} from 'angular2/core';
 
 @Component({
   selector: 'moblist',
-  templateUrl: './src/moblist/moblist.html',
-  directives: [COMMON_DIRECTIVES]
+  templateUrl: './src/moblist/moblist.html'
 })
 
 export class Moblist {
