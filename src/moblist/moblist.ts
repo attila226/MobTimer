@@ -1,4 +1,4 @@
-import {Component, View, CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/core';
+import {Component, View, CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/angular2';
 
 @Component({
   selector: 'moblist',
