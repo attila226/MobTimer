@@ -7,9 +7,9 @@ import {Component, View} from 'angular2/core';
 
 export class Timer {
     time: number = 300;
-    isTimerRunning: boolean = true;
-    min: number;
-    sec: number;
+    isTimerRunning: boolean = false;
+    timeOutput: string;
+    buttonText: string = 'Play';
     
     constructor(){      
         this.setTime(this.time);
@@ -17,8 +17,6 @@ export class Timer {
         setInterval(() => {
             this.setTime(this.time);
             
-            //Not the THIS that we're looking for
-            //https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval
             if(this.time > 0 && this.isTimerRunning){
                 this.time--;
             }    
@@ -26,11 +24,30 @@ export class Timer {
     }
     
     setTime(time){
-        this.min = Math.floor(time / 60);
-        this.sec = time - this.min * 60;       
+        let min = Math.floor(time / 60);
+        let sec = time - min * 60;     
+        
+        this.timeOutput = this.formatTime(min, sec);  
+    }
+    
+    formatTime(min:number, sec:number){
+        let minPadding: string = '';
+        let secPadding: string = '';
+        
+        if(min < 10){
+            minPadding = '0';
+        }
+        
+        if(sec < 10){
+            secPadding = '0';
+        }
+        
+        return `${minPadding}${min} : ${secPadding}${sec}`;
     }
            
     toggle(){
         this.isTimerRunning = ! (this.isTimerRunning);
+        
+        this.buttonText = (this.isTimerRunning) ? 'Pause' : 'Play';
     }
  }
