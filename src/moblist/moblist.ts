@@ -9,7 +9,7 @@ import {COMMON_DIRECTIVES} from 'angular2/common';
 
 export class Moblist {
     mobberList: string[] = [];   
-    
+        
     add(mobber: any){
         this.mobberList.push(mobber.value);
         
