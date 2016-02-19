@@ -1,0 +1,35 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+html, body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    /* cross browser compatability for flexbox*/
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+}
+
+#main-navigation {
+    -webkit-flex: 1;
+    flex: 1;
+    background-color: #444;
+}
+
+#timer-countdown {
+    -webkit-flex: 1;
+    flex: 1;
+    background-color: #444;
+}
+
+#mob-options {
+    width: 300px;
+    background-color: #444;
+    moblist, interval {
+        
+    }
+}
