@@ -3,7 +3,7 @@
 </header>
 
 <section>
-    <timer [min]="5" ></timer>
+    <timer [min]="selectedInterval" ></timer>
 </section>
 
 <aside>
@@ -11,5 +11,5 @@
 </aside>
 
 <aside>
-    <interval></interval>
+    <interval (selectEvent)="intervalUpdated($event)"></interval>
 </aside>

@@ -10,4 +10,16 @@ import {Interval} from './interval/interval';
 })
 
 export class AppComponent  { 
+    selectedInterval: number;
+    
+    constructor() { 
+        this.selectedInterval = 5;
+    }
+    
+    intervalUpdated(newInterval: number){
+        console.log(`new interval is ${newInterval}`);
+        
+        //TODO: This is not yet updating in UI
+        this.selectedInterval = newInterval;
+    }
 }
