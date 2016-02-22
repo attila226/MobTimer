@@ -1,19 +1,25 @@
-import {Component, View} from 'angular2/core';
+import {Component, Input} from 'angular2/core';
 
 @Component({
   selector: 'timer',
-  templateUrl: './src/timer/timer.html' 
+  templateUrl: './src/timer/timer.html'
 })
 
-export class Timer {
-    time: number = 300;
+export class Timer {    
+    @Input() min: number;
+    
+    ngOnInit() {
+        this.time = this.min * 60;
+        
+        this.setTime(this.time);
+    }
+    
+    time: number;
     isTimerRunning: boolean = false;
     timeOutput: string;
     buttonText: string = 'Play';
     
-    constructor(){      
-        this.setTime(this.time);
-          
+    constructor(){              
         setInterval(() => {
             this.setTime(this.time);
             

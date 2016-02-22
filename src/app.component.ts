@@ -1,4 +1,4 @@
-import {Component, View} from 'angular2/core';
+import {Component, View, OnInit, Input} from 'angular2/core';
 import {Timer} from './timer/timer';
 import {Moblist} from './moblist/moblist';
 import {Interval} from './interval/interval';
@@ -9,6 +9,5 @@ import {Interval} from './interval/interval';
     directives: [Timer, Moblist, Interval] 
 })
 
-export class AppComponent { 
-    
+export class AppComponent  { 
 }
