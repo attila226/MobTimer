@@ -7,36 +7,49 @@ import {Component, Input} from 'angular2/core';
 
 export class Timer {    
     @Input() min: number;
-    
-    ngOnInit() {
-        this.time = this.min * 60;
         
-        this.setTime(this.time);
-    }
-    
-    time: number;
+    timeInSeconds: number;
     isTimerRunning: boolean = false;
     timeOutput: string;
     buttonText: string = 'Play';
-    
+        
     constructor(){              
         setInterval(() => {
-            this.setTime(this.time);
+            this.processTime();
             
-            if(this.time > 0 && this.isTimerRunning){
-                this.time--;
+            if(this.timeInSeconds > 0 && this.isTimerRunning){
+                this.timeInSeconds--;
             }    
         }, 1000);    
     }
     
-    setTime(time){
+    ngOnInit() {
+        this.initTimer();
+    }
+    
+    ngOnChanges(changes: {[propName: string]: SimpleChange}) {
+        //Reset timer on min changes
+        this.initTimer();
+    }
+    
+    initTimer(){
+        this.timeInSeconds = this.min * 60;
+        this.processTime();
+    }
+    
+    processTime(){
+        let minSec = this.getMinSec(this.timeInSeconds);  
+        this.timeOutput = this.timeDisplayFormatting(minSec.min, minSec.sec);          
+    }
+    
+    getMinSec(time){
         let min = Math.floor(time / 60);
         let sec = time - min * 60;     
         
-        this.timeOutput = this.formatTime(min, sec);  
+        return {min, sec}; 
     }
     
-    formatTime(min:number, sec:number){
+    timeDisplayFormatting(min:number, sec:number){
         let minPadding: string = '';
         let secPadding: string = '';
         
@@ -53,7 +66,7 @@ export class Timer {
            
     toggle(){
         this.isTimerRunning = ! (this.isTimerRunning);
-        
+                
         this.buttonText = (this.isTimerRunning) ? 'Pause' : 'Play';
     }
  }

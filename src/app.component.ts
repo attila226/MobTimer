@@ -18,8 +18,7 @@ export class AppComponent  {
     
     intervalUpdated(newInterval: number){
         console.log(`new interval is ${newInterval}`);
-        
-        //TODO: This is not yet updating in UI
+                        
         this.selectedInterval = newInterval;
     }
 }
