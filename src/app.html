@@ -1,5 +1,5 @@
 <header>
-    <h1>Mob Timer</h1>
+    <h1 *ngIf="selectedMobber.length > 0">{{selectedMobber}}'s Turn</h1>
 </header>
 
 <section>
@@ -7,7 +7,7 @@
 </section>
 
 <aside>
-    <moblist></moblist>
+    <moblist (mobberSelected)="currentMobberUpdated($event)"></moblist>
 </aside>
 
 <aside>

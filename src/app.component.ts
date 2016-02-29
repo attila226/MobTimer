@@ -11,14 +11,18 @@ import {Interval} from './interval/interval';
 
 export class AppComponent  { 
     selectedInterval: number;
+    selectedMobber: string;
     
     constructor() { 
         this.selectedInterval = 5;
+        this.selectedMobber = '';
     }
     
-    intervalUpdated(newInterval: number){
-        console.log(`new interval is ${newInterval}`);
-                        
+    intervalUpdated(newInterval: number){                        
         this.selectedInterval = newInterval;
+    }
+    
+    currentMobberUpdated(selectedMobber: string){
+        this.selectedMobber = selectedMobber;
     }
 }
