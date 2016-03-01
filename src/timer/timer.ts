@@ -13,24 +13,26 @@ export class Timer {
     timeOutput: string;
     buttonText: string = 'Play';
     timeReached: boolean = false;
+    intervalCounter: number = 0;
         
-    constructor(){              
+    constructor(){                    
         setInterval(() => {
             this.processTime();
             
-            if(this.timeInSeconds > 0 && this.isTimerRunning){
+            if(this.timeInSeconds > 0 && this.isTimerRunning && this.isMod10(this.intervalCounter)){
                 this.timeInSeconds--;
             }    
             
             if(this.timeInSeconds === 0 && ! this.timeReached){
                 this.timeReached = true;
                 
-                
                 this.playChime();
                 this.timerNotification();
             }
             
-        }, 1000);    
+            this.intervalCounter++;
+            
+        }, 100);    
     }
     
     ngOnInit() {
@@ -40,6 +42,10 @@ export class Timer {
     ngOnChanges(changes: {[propName: string]: SimpleChange}) {
         //Reset timer on min changes
         this.initTimer();
+    }
+    
+    isMod10(num: number){
+        return (num % 10 === 0);
     }
     
     playChime(){
@@ -57,6 +63,7 @@ export class Timer {
     }
     
     initTimer(){
+        this.intervalCounter = 0;
         this.timeReached = false;
         this.timeInSeconds = this.min * 60;
         this.processTime();
