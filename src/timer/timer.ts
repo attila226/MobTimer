@@ -1,11 +1,12 @@
-import {Component, Input} from 'angular2/core';
+import {Component, Input, Output, EventEmitter} from 'angular2/core';
 
 @Component({
   selector: 'timer',
   templateUrl: './src/timer/timer.html'
 })
 
-export class Timer {    
+export class Timer {
+    @Output() onTimerReached = new EventEmitter();    
     @Input() min: number;
         
     timeInSeconds: number;
@@ -24,10 +25,7 @@ export class Timer {
             }    
             
             if(this.timeInSeconds === 0 && ! this.timeReached){
-                this.timeReached = true;
-                
-                this.playChime();
-                this.timerNotification();
+                this.timerReached();
             }
             
             this.intervalCounter++;
@@ -42,6 +40,15 @@ export class Timer {
     ngOnChanges(changes: {[propName: string]: SimpleChange}) {
         //Reset timer on min changes
         this.initTimer();
+    }
+    
+    timerReached(){
+        this.timeReached = true;
+        
+        this.playChime();
+        this.timerNotification();
+        
+        this.onTimerReached.emit();      
     }
     
     isMod10(num: number){
