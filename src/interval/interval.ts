@@ -12,7 +12,7 @@ export class Interval {
     selectedInterval: number;
     
     constructor() {
-        this.intervals = [5,6,7,8,9,10,11,12,13,14,15];  
+        this.intervals = [.05, 5,6,7,8,9,10,11,12,13,14,15];  
         this.selectedInterval = 5;
     }
     

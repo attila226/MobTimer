@@ -1,4 +1,5 @@
 <header>
+    <h1 *ngIf="selectedMobber.length === 0">Add a Mobber</h1>
     <h1 *ngIf="selectedMobber.length > 0">{{selectedMobber}}'s Turn</h1>
 </header>
 

@@ -12,6 +12,7 @@ export class Timer {
     isTimerRunning: boolean = false;
     timeOutput: string;
     buttonText: string = 'Play';
+    timeReached: boolean = false;
         
     constructor(){              
         setInterval(() => {
@@ -20,6 +21,15 @@ export class Timer {
             if(this.timeInSeconds > 0 && this.isTimerRunning){
                 this.timeInSeconds--;
             }    
+            
+            if(this.timeInSeconds === 0 && ! this.timeReached){
+                this.timeReached = true;
+                
+                
+                this.playChime();
+                this.timerNotification();
+            }
+            
         }, 1000);    
     }
     
@@ -32,7 +42,22 @@ export class Timer {
         this.initTimer();
     }
     
+    playChime(){
+        let chimeSound = new Audio("https://www.freesound.org/data/previews/22/22267_124239-lq.mp3");
+        chimeSound.play();     
+    }
+    
+    timerNotification(){
+        Notification.requestPermission(function (permission) {
+            // If the user accepts, let's create a notification
+            if (permission === "granted") {
+                let notification = new Notification(`Time's up`);
+            }
+        });         
+    }
+    
     initTimer(){
+        this.timeReached = false;
         this.timeInSeconds = this.min * 60;
         this.processTime();
     }
