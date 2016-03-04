@@ -12,6 +12,7 @@ import {Interval} from './interval/interval';
 export class AppComponent  { 
     selectedInterval: number;
     selectedMobber: string;
+    rotateMobber: boolean = false;
     
     constructor() { 
         this.selectedInterval = 5;
@@ -24,5 +25,10 @@ export class AppComponent  {
     
     currentMobberUpdated(selectedMobber: string){
         this.selectedMobber = selectedMobber;
+    }
+    
+    rotate(){
+        console.log('Time to rotate!!!');
+        this.rotateMobber = true;
     }
 }

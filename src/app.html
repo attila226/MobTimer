@@ -4,11 +4,11 @@
 </header>
 
 <section>
-    <timer [min]="selectedInterval" ></timer>
+    <timer [min]="selectedInterval" (onTimerReached)="rotate()" ></timer>
 </section>
 
 <aside>
-    <moblist (mobberSelected)="currentMobberUpdated($event)"></moblist>
+    <moblist [rotateMobber]="" (mobberSelected)="currentMobberUpdated($event)"></moblist>
 </aside>
 
 <aside>

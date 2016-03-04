@@ -1,4 +1,4 @@
-import {Component, Output, EventEmitter} from 'angular2/core';
+import {Component, Input, Output, EventEmitter} from 'angular2/core';
 import {COMMON_DIRECTIVES} from 'angular2/common';
 
 @Component({
@@ -9,7 +9,12 @@ import {COMMON_DIRECTIVES} from 'angular2/common';
 
 export class Moblist {
     @Output() mobberSelected = new EventEmitter();
+    @Input() rotateMobber: boolean;
     mobberList: string[] = [];   
+    
+    ngOnChanges(changes: {[propName: string]: SimpleChange}) {
+        //If we need to change the mobber then rotate
+    }
         
     add(mobber: any){
         this.mobberList.unshift(mobber.value);
