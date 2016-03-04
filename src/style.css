@@ -93,8 +93,7 @@ body {
  * Side Navigation
  */
 #options {
-  padding: 24px;
-  margin-top: 0px !important; }
+  padding: 24px; }
 
 @media (min-width: 768px) {
   .masthead-brand {
@@ -138,8 +137,15 @@ body {
     vertical-align: middle; }
 
   #options {
-    vertical-align: top !important;
-    float: right; }
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 150px;
+    margin-right: 80px;
+    padding: 25px;
+    background-color: #222222;
+    opacity: 0.9;
+    border-radius: 6px; }
 
   /* Handle the widths */
   .masthead,
