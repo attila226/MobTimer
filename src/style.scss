@@ -50,6 +50,9 @@ hr {
 
 ul {
     list-style-type: none;
+    list-style-position:inside;
+    margin:0;
+    padding:0;
 }
 
 input {
@@ -182,6 +185,7 @@ input {
   }
   
 #options {
+   width: 300px;
    position:absolute;
    top:0;
    right:0;
