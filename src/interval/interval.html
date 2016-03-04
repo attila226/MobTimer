@@ -1,3 +1,4 @@
-<select [(ngModel)]="selectedInterval" (change)="onIntervalSelected($event.target.value)">
+INTERVAL <br /><br />
+<select class="form-control" [(ngModel)]="selectedInterval" (change)="onIntervalSelected($event.target.value)">
   <option *ngFor="#item of intervals; #idx = index" value="{{item}}">{{item}} minutes</option>
 </select>

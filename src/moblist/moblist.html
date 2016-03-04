@@ -1,6 +1,9 @@
-<input #mobber type="text"> <button (click)="add(mobber)">add</button>
+MOBBERS <br /><br />
 
-Mobbers:
+<input #mobber type="text" class="form-control" placeholder="Enter name"><br />
+
+<button class="btn btn-primary btn-md btn-block" (click)="add(mobber)">ADD</button><br />
+
 <ul>
 <li *ngFor="#item of mobberList; #idx = index">
     {{item}} 

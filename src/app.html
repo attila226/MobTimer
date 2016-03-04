@@ -1,16 +1,32 @@
-<header>
-    <h1 *ngIf="selectedMobber.length === 0">Add a Mobber</h1>
-    <h1 *ngIf="selectedMobber.length > 0">{{selectedMobber}}'s Turn</h1>
-</header>
+<div class="site-wrapper">
+    <div class="site-wrapper-inner">
+    <div class="cover-container">
+        <div class="masthead clearfix">
+        <div class="inner">
+            <h3 class="masthead-brand">Mob Timer</h3>
+            <nav>
+            <ul class="nav masthead-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">GitHub</a></li>
+            </ul>
+            </nav>
+        </div>
+        </div>
+        <div id="options">
+        <moblist [rotateMobber]="" (mobberSelected)="currentMobberUpdated($event)"></moblist>
+            <hr />
+        <interval (selectEvent)="intervalUpdated($event)"></interval>
+        </div>
+        <div class="inner cover">
+            <timer [min]="selectedInterval" (onTimerReached)="rotate()" ></timer>
+        </div>
 
-<section>
-    <timer [min]="selectedInterval" (onTimerReached)="rotate()" ></timer>
-</section>
-
-<aside>
-    <moblist [rotateMobber]="" (mobberSelected)="currentMobberUpdated($event)"></moblist>
-</aside>
-
-<aside>
-    <interval (selectEvent)="intervalUpdated($event)"></interval>
-</aside>
+        <div class="mastfoot">
+        <div class="inner">
+            <p>Mob Timer for agile mob programmers, by Attila & Aaron.</p>
+        </div>
+        </div>
+        
+    </div>
+    </div>
+</div>
