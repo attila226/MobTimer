@@ -2,7 +2,7 @@
     {{timeOutput}}
 </span>
 <br />
-<span class="glyphicon glyphicon-play-circle play-circle" aria-hidden="true" (click)="toggle()">
+<span class="glyphicon play-pause" [ngClass]="buttonClass" aria-hidden="true" (click)="toggle()">
 </span>
 <br />
 {{buttonText}}

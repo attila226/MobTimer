@@ -13,6 +13,7 @@ export class Timer {
     isTimerRunning: boolean = false;
     timeOutput: string;
     buttonText: string = 'Play';
+    buttonClass: string = 'glyphicon-play-circle';
     timeReached: boolean = false;
     intervalCounter: number = 0;
         
@@ -107,5 +108,6 @@ export class Timer {
         this.isTimerRunning = ! (this.isTimerRunning);
                 
         this.buttonText = (this.isTimerRunning) ? 'Pause' : 'Play';
+        this.buttonClass = (this.isTimerRunning) ? 'glyphicon-pause' : 'glyphicon-play-circle';
     }
  }
