@@ -1,36 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 html, body {
-  font-family: 'Montserrat', sans-serif;
-  margin: 0; }
-
-.container {
-  display: flex;
-  /* cross browser compatability for flexbox*/
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex; }
-
-#main-navigation {
-  -webkit-flex: auto;
-  flex: auto;
-  flex-direction: row;
-  background-color: #444; }
-
-#timer-countdown {
-  -webkit-flex: auto;
-  flex: auto;
-  flex-direction: column;
-  width: 66%;
-  background-color: #444; }
-
-#mob-options {
-  background-color: #444;
-  width: 33%;
-  -webkit-flex: auto;
-  flex: auto;
-  flex-direction: row; }
-  #mob-options moblist, #mob-options interval {
-    flex-direction: column; }
+  font-family: 'Montserrat', sans-serif; }
 
 /*# sourceMappingURL=style.css.map */
