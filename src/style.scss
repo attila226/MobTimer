@@ -15,21 +15,27 @@ html, body {
 }
 
 #main-navigation {
-    -webkit-flex: 1;
-    flex: 1;
+    -webkit-flex: auto; 
+    flex: auto;
+    flex-direction: row;
     background-color: #444;
 }
 
 #timer-countdown {
-    -webkit-flex: 1;
-    flex: 1;
+    -webkit-flex: auto;
+    flex: auto; 
+    flex-direction: column;
+    width: 66%;
     background-color: #444;
 }
 
 #mob-options {
-    width: 300px;
     background-color: #444;
+    width: 33%;
+    -webkit-flex: auto;
+    flex: auto; 
+    flex-direction: row;
     moblist, interval {
-        
+        flex-direction: column; 
     }
 }
