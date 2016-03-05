@@ -11,7 +11,7 @@ import {Interval} from './interval/interval';
 
 export class AppComponent  { 
     selectedTimeInterval: number;
-    selectedMobberIndex: number = 0;
+    selectedMobberIndex: number = -1;
     mobberListSize: number = 0;
     selectedMobber: string;
     next: boolean = false;
@@ -47,7 +47,7 @@ export class AppComponent  {
              this.selectedMobberIndex = this.selectedMobberIndex + direction;
         }
         
-        console.log(this.selectedMobberIndex);
+        console.log(`Selected mobber index ${this.selectedMobberIndex}`);
     }
     
     rotate(){

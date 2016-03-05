@@ -10,15 +10,17 @@ import {COMMON_DIRECTIVES} from 'angular2/common';
 export class Moblist {
     @Output() mobberSelected = new EventEmitter();
     @Output() mobberListSizeUpdated = new EventEmitter();
-    @Input() selectedIndex: number = 0;   
+    @Input() selectedIndex: number;   
     mobberList: string[] = [];
-   
-                
+                 
     add(mobber: any){
         this.mobberList.unshift(mobber.value);
         
         mobber.value = '';
         
+        console.log(`Selected index before add ${this.selectedIndex}`);
+        
+        this.selectedIndex++;
         this.mobberListSizeUpdated.emit(this.mobberList.length);
         this.setCurrentMobber();
     }
@@ -26,6 +28,7 @@ export class Moblist {
     remove(idx: number) {
 	   this.mobberList.splice(idx, 1); 
        
+       this.selectedIndex--;
        this.mobberListSizeUpdated.emit(this.mobberList.length);
        this.setCurrentMobber();
     } 
@@ -39,6 +42,8 @@ export class Moblist {
     }
       
     setCurrentMobber(){
+        console.log(`Mobber list selected index ${this.selectedIndex}`);
+        
         if(this.mobberList.length > 0){
             this.mobberSelected.emit(this.mobberList[this.selectedIndex]);
         }
