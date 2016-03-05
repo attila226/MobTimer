@@ -6,7 +6,8 @@ import {Component, Input, Output, EventEmitter} from 'angular2/core';
 })
 
 export class Timer {
-    @Output() onTimerReached = new EventEmitter();    
+    @Output() next = new EventEmitter();
+    @Output() previous = new EventEmitter();    
     @Input() min: number;
         
     timeInSeconds: number;
@@ -43,13 +44,21 @@ export class Timer {
         this.initTimer();
     }
     
+    goNext(){
+        this.next.emit(); 
+    }
+    
+    GoPrevious(){
+        this.previous.emit(); 
+    }
+    
     timerReached(){
         this.timeReached = true;
         
         this.playChime();
         this.timerNotification();
         
-        this.onTimerReached.emit();      
+        this.goNext();      
     }
     
     isMod10(num: number){

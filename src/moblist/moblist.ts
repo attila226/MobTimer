@@ -9,20 +9,26 @@ import {COMMON_DIRECTIVES} from 'angular2/common';
 
 export class Moblist {
     @Output() mobberSelected = new EventEmitter();
-    @Input() rotateMobber: boolean;
-    mobberList: string[] = [];   
-    
-    ngOnChanges(changes: {[propName: string]: SimpleChange}) {
-        //If we need to change the mobber then rotate
-    }
-        
+    @Output() mobberListSizeUpdated = new EventEmitter();
+    @Input() selectedIndex: number = 0;   
+    mobberList: string[] = [];
+   
+                
     add(mobber: any){
         this.mobberList.unshift(mobber.value);
         
         mobber.value = '';
         
+        this.mobberListSizeUpdated.emit(this.mobberList.length);
         this.setCurrentMobber();
     }
+
+    remove(idx: number) {
+	   this.mobberList.splice(idx, 1); 
+       
+       this.mobberListSizeUpdated.emit(this.mobberList.length);
+       this.setCurrentMobber();
+    } 
     
     move(idx: number, step: number) {
         var tmp = this.mobberList[idx];
@@ -31,16 +37,10 @@ export class Moblist {
         
         this.setCurrentMobber();
     }
-  
-    remove(idx: number) {
-	   this.mobberList.splice(idx, 1); 
-       
-       this.setCurrentMobber();
-    } 
-    
+      
     setCurrentMobber(){
         if(this.mobberList.length > 0){
-            this.mobberSelected.emit(this.mobberList[0]);
+            this.mobberSelected.emit(this.mobberList[this.selectedIndex]);
         }
     }  
 }

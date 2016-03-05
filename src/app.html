@@ -13,7 +13,9 @@
         </div>
         </div>
         <div id="options">
-        <moblist [rotateMobber]="" (mobberSelected)="currentMobberUpdated($event)"></moblist>
+        <moblist (mobberSelected)="currentMobberUpdated($event)" 
+            (mobberListSizeUpdated)="mobberListSizeUpdated($event)"
+            [selectedIndex]="selectedMobberIndex"></moblist>
             <hr />
         <interval (selectEvent)="intervalUpdated($event)"></interval>
         </div>
@@ -22,7 +24,7 @@
                 <h1 *ngIf="selectedMobber.length === 0">Add a Mobber</h1>
                 <h1 *ngIf="selectedMobber.length > 0">{{selectedMobber}}'s Turn</h1>
             </header>
-            <timer [min]="selectedInterval" (onTimerReached)="rotate()" ></timer>
+            <timer [min]="selectedTimeInterval" (next)="nextMobber(1)" (prev)="nextMobber(-1)"  ></timer>
         </div>
 
         <div class="mastfoot">
