@@ -51,10 +51,11 @@ ul {
 input {
   color: #222222; }
 
-.play-pause {
+timer .play-pause {
   font-size: 128px; }
-
-.timer-text {
+timer .glyphicon-pause {
+  padding-left: 12px; }
+timer .timer-text {
   font-size: 72px; }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -167,11 +168,12 @@ input {
     position: absolute;
     top: 0;
     right: 0;
-    margin-top: 150px;
-    margin-right: 80px;
+    margin-top: 100px;
+    margin-right: 75px;
     padding: 25px;
     background-color: #222222;
-    opacity: 0.9; }
+    opacity: 0.9;
+    border-radius: 12px; }
 
   /* Handle the widths */
   .masthead,
