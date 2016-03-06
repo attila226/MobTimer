@@ -30,6 +30,7 @@ export class Moblist {
        
        //If we remove the selected person ... then we should move on to the next mobber
        if(idx === this.selectedIndex){
+           this.selectedIndex--; // We need to decrement because otherwise selectedIndex would be greater than the list
            this.next();
        } 
        //If we remove someone from the list that is above the selected person, we have to decrement the selectedIndex
@@ -45,6 +46,8 @@ export class Moblist {
         this.mobberList[idx] = this.mobberList[idx - step];
         this.mobberList[idx - step] = tmp;
         
+        //TODO: If we move the selected mobber, we should update the selected index too
+        
         this.setCurrentMobber();
     }
       
@@ -58,10 +61,12 @@ export class Moblist {
         
         //When at the end of the list, move to the front
         if(this.selectedIndex === (this.mobberList.length -1)){
+            console.log('At end of list');
             this.selectedIndex = 0;
         }
         //Otherwise increase selectedIndex
         else {
+            console.log('Moving to next');
             this.selectedIndex++;
         }    
         
