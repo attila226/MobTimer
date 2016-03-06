@@ -50,6 +50,10 @@ export class Timer {
         this.timerNotification();
         
         this.onTimerReached.emit();      
+        
+        //Reset clock
+        this.initTimer();
+        this.toggle();
     }
     
     isMod10(num: number){
