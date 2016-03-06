@@ -70,7 +70,12 @@ export class Timer {
         Notification.requestPermission(function (permission) {
             // If the user accepts, let's create a notification
             if (permission === "granted") {
-                let notification = new Notification(`Time's up`);
+                let title = `Time's up`;
+                let options = {
+                    icon: 'src/img/alarm.png'
+                };
+                
+                let notification = new Notification(title, options);
             }
         });         
     }
