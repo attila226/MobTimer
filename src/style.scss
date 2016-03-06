@@ -16,7 +16,6 @@ a:hover {
 .btn-default:hover,
 .btn-default:focus {
   color: #333;
-  text-shadow: none; /* Prevent inheritence from `body` */
   background-color: #fff;
   border: 1px solid #fff;
 }
@@ -30,7 +29,7 @@ body {
   height: 100%;
   background-color: #333;
   font-family: 'Montserrat', sans-serif;
-  background: url(https://source.unsplash.com/category/nature/1600x900) no-repeat center center fixed; 
+  background: url(https://source.unsplash.com/category/nature/1200x768) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -39,7 +38,6 @@ body {
 body {
   color: #fff;
   text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
 hr {
@@ -60,18 +58,53 @@ input {
 }
 
 timer {
+    .timer-container {
+        padding-top: 15%;
+    }
+    .timer-icons {
+        top: 50%;
+        transform: translateY(-50%);
+    }
     .play-pause {
-        font-size: 128px;
+        font-size: 160px;
+    }
+    .glyphicon-step-forward, .glyphicon-step-backward {
+        font-size: 72px;
     }
 
     .glyphicon-pause {
-        padding-left: 12px; 
+        padding-left: 16px; 
     }
 
     .timer-text {
-        font-size: 72px;
+        font-size: 128px;
+    }
+    
+    .button-text {
+        margin-top: -75px;
+        font-size: 24px;
     }
 } 
+
+moblist {
+    .mobbers {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+        padding-right: 0px;
+        span {
+            padding: 4px;
+            line-height: 26px;
+        }
+    }
+    .selected {
+        background-color: #ffffff;
+        border-radius: 6px;
+        color: #333333;
+    }
+}
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
@@ -137,8 +170,10 @@ timer {
  */
  
 #options {
-    padding: 24px;
+    padding: 12px;
     text-align: left;
+    background-color: #222222;
+    opacity: 0.9;
 }
 
 @media (min-width: 768px) {
@@ -191,16 +226,13 @@ timer {
   }
   
 #options {
-   width: 300px;
+   width: 275px;
    position:absolute;
    top:0;
    right:0;
    margin-top: 100px;
-   margin-right: 75px; 
-   padding: 25px;
-   background-color: #222222;
-   opacity: 0.9;
-   border-radius: 12px; 
+   margin-right: 25px; 
+   border-radius: 6px; 
 }
   
   /* Handle the widths */
