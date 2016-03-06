@@ -47,7 +47,10 @@ export class Moblist {
         this.mobberList[idx] = this.mobberList[idx - step];
         this.mobberList[idx - step] = tmp;
         
-        //TODO: If we move the selected mobber, we should update the selected index too
+        //If we move the selected mobber, we should update the selected index too
+        if(this.selectedIndex === idx){
+            this.selectedIndex = idx - step;
+        }
         
         this.setCurrentMobber();
     }
