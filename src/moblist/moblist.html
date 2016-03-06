@@ -5,12 +5,19 @@ MOBBERS <br /><br />
 <button class="btn btn-primary btn-md btn-block" (click)="add(mobber)">ADD</button><br />
 
 <ul>
-<li *ngFor="#item of mobberList; #idx = index">
-    <span *ngIf="idx == selectedIndex" class="selected">{{item}}</span>
-    <span *ngIf="idx != selectedIndex">{{item}}</span>
-    
-    <button [disabled]="idx === 0" (click)="move(idx, 1)">Up</button>
-    <button [disabled]="idx === mobberList.length - 1" (click)="move(idx, -1)">Down</button>
-    <button (click)="remove(idx)">Remove</button>
-</li>
+    <li *ngFor="#item of mobberList; #idx = index">
+        <div class="row">
+            <div class="col-md-6 mobbers">
+                <span *ngIf="idx == selectedIndex" class="selected">{{item}}</span>
+                <span *ngIf="idx != selectedIndex">{{item}}</span>
+            </div>
+            <div class="col-md-6">
+                <div class="pull-right">
+                    <button [disabled]="idx === 0" (click)="move(idx, 1)" class="btn btn-xs btn-primary"><icon class="glyphicon glyphicon-chevron-up"></icon></button>
+                    <button [disabled]="idx === mobberList.length - 1" (click)="move(idx, -1)" class="btn btn-xs btn-primary"><icon class="glyphicon glyphicon-chevron-down"></icon></button>
+                    <button (click)="remove(idx)" class="btn btn-xs btn-danger"><icon class="glyphicon glyphicon-trash"></icon></button>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
