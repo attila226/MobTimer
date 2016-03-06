@@ -134,6 +134,10 @@ timer .timer-text {
 .cover {
   padding: 0 20px; }
 
+.selected{
+    background-color: #00ff00;
+}
+
 .cover .btn-lg {
   padding: 10px 20px;
   font-weight: bold; }
