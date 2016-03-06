@@ -35,7 +35,7 @@ export class Timer {
         }, 100);    
     }
     
-    ngOnInit() {
+    ngOnInit() {        
         this.initTimer();
     }
     
@@ -44,21 +44,17 @@ export class Timer {
         this.initTimer();
     }
     
-    goNext(){
-        this.next.emit(); 
-    }
-    
-    GoPrevious(){
-        this.previous.emit(); 
-    }
-    
     timerReached(){
         this.timeReached = true;
         
         this.playChime();
-        this.timerNotification();
+        this.timerNotification();            
         
-        this.goNext();      
+        //Reset clock
+        this.initTimer();
+        this.toggle();
+        
+        this.next.emit(); 
     }
     
     isMod10(num: number){

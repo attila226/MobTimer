@@ -13,18 +13,16 @@
         </div>
         </div>
         <div id="options">
-        <moblist (mobberSelected)="currentMobberUpdated($event)" 
-            (mobberListSizeUpdated)="mobberListSizeUpdated($event)"
-            [selectedIndex]="selectedMobberIndex"></moblist>
+        <moblist (mobberSelected)="currentMobberUpdated($event)" #m></moblist>
             <hr />
         <interval (selectEvent)="intervalUpdated($event)"></interval>
         </div>
         <div class="inner cover">
             <header>
-                <h1 *ngIf="selectedMobberIndex.length === 0">Add a Mobber</h1>
-                <h1 *ngIf="selectedMobberIndex.length > 0">{{selectedMobber}}'s Turn</h1>
+                <h1 *ngIf="selectedMobber === ''">Add a Mobber</h1>
+                <h1 *ngIf="selectedMobber !== ''">{{selectedMobber}}'s Turn</h1>
             </header>
-            <timer [min]="selectedTimeInterval" (next)="nextMobber(1)" (prev)="nextMobber(-1)"  ></timer>
+            <timer [min]="selectedTimeInterval" (next)="m.next()" ></timer>
         </div>
 
         <div class="mastfoot">

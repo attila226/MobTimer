@@ -9,27 +9,36 @@ import {COMMON_DIRECTIVES} from 'angular2/common';
 
 export class Moblist {
     @Output() mobberSelected = new EventEmitter();
-    @Output() mobberListSizeUpdated = new EventEmitter();
-    @Input() selectedIndex: number;   
     mobberList: string[] = [];
-                 
+    selectedIndex: number = -1;   
+            
     add(mobber: any){
-        this.mobberList.unshift(mobber.value);
+        this.mobberList.push(mobber.value);
         
         mobber.value = '';
+
+        //By default we make the first person added the selected mobber
+        if(this.selectedIndex === -1){
+            this.selectedIndex = 0;
+        }
         
-        console.log(`Selected index before add ${this.selectedIndex}`);
-        
-        this.selectedIndex++;
-        this.mobberListSizeUpdated.emit(this.mobberList.length);
         this.setCurrentMobber();
     }
 
+    
     remove(idx: number) {
 	   this.mobberList.splice(idx, 1); 
        
-       this.selectedIndex--;
-       this.mobberListSizeUpdated.emit(this.mobberList.length);
+       //If we remove the selected person ... then we should move on to the next mobber
+       if(idx === this.selectedIndex){
+           this.selectedIndex--; // We need to decrement because otherwise selectedIndex would be greater than the list
+           this.next();
+       } 
+       //If we remove someone from the list that is above the selected person, we have to decrement the selectedIndex
+       else if(idx < this.selectedIndex){
+           this.selectedIndex--;
+       }
+       
        this.setCurrentMobber();
     } 
     
@@ -38,9 +47,33 @@ export class Moblist {
         this.mobberList[idx] = this.mobberList[idx - step];
         this.mobberList[idx - step] = tmp;
         
+        //TODO: If we move the selected mobber, we should update the selected index too
+        
         this.setCurrentMobber();
     }
       
+    next(){
+        let isEmpty: boolean = (this.mobberList.length === 0) ? true : false;
+        
+        //Do nothing when the list is empty
+        if(isEmpty){
+            return;
+        }
+        
+        //When at the end of the list, move to the front
+        if(this.selectedIndex === (this.mobberList.length -1)){
+            console.log('At end of list');
+            this.selectedIndex = 0;
+        }
+        //Otherwise increase selectedIndex
+        else {
+            console.log('Moving to next');
+            this.selectedIndex++;
+        }    
+        
+        this.setCurrentMobber();           
+    }
+    
     setCurrentMobber(){
         console.log(`Mobber list selected index ${this.selectedIndex}`);
         
