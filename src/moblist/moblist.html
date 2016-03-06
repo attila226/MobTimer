@@ -1,6 +1,6 @@
 MOBBERS <br /><br />
 
-<input #mobber type="text" class="form-control" placeholder="Enter name"><br />{{selectedIndex}}
+<input #mobber type="text" class="form-control" (keyup.enter)="add(mobber)" placeholder="Enter name"><br />
 
 <button class="btn btn-primary btn-md btn-block" (click)="add(mobber)">ADD</button><br />
 
