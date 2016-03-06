@@ -22,7 +22,7 @@
                 <h1 *ngIf="selectedMobber === ''">Add a Mobber</h1>
                 <h1 *ngIf="selectedMobber !== ''">{{selectedMobber}}'s Turn</h1>
             </header>
-            <timer [min]="selectedTimeInterval" (next)="m.next()" ></timer>
+            <timer [min]="selectedTimeInterval" (next)="m.next()" (prev)="m.prev()" ></timer>
         </div>
 
         <div class="mastfoot">

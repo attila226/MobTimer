@@ -7,7 +7,7 @@ import {Component, Input, Output, EventEmitter} from 'angular2/core';
 
 export class Timer {
     @Output() next = new EventEmitter();
-    @Output() previous = new EventEmitter();    
+    @Output() prev = new EventEmitter();    
     @Input() min: number;
         
     timeInSeconds: number;
@@ -107,6 +107,14 @@ export class Timer {
         }
         
         return `${minPadding}${min} : ${secPadding}${sec}`;
+    }
+    
+    clickPrev(){
+        this.prev.emit();
+    }
+    
+    clickNext(){
+        this.next.emit(); 
     }
            
     toggle(){

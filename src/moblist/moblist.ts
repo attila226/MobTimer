@@ -65,21 +65,35 @@ export class Moblist {
         
         //When at the end of the list, move to the front
         if(this.selectedIndex === (this.mobberList.length -1)){
-            console.log('At end of list');
             this.selectedIndex = 0;
         }
         //Otherwise increase selectedIndex
         else {
-            console.log('Moving to next');
             this.selectedIndex++;
         }    
         
         this.setCurrentMobber();           
     }
     
-    setCurrentMobber(){
-        console.log(`Mobber list selected index ${this.selectedIndex}`);
+    prev(){
+        let isEmpty: boolean = (this.mobberList.length === 0) ? true : false;
         
+        //Do nothing when the list is empty
+        if(isEmpty){
+            return;
+        }
+        
+        //When at the begining of the list, move to the end
+        if(this.selectedIndex === 0){
+            this.selectedIndex = this.mobberList.length -1;
+        }
+        //Otherwise decrease selectedIndex
+        else {
+            this.selectedIndex--;
+        }    
+    }
+    
+    setCurrentMobber(){
         if(this.mobberList.length > 0){
             this.mobberSelected.emit(this.mobberList[this.selectedIndex]);
         }
