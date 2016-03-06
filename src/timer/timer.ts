@@ -111,10 +111,12 @@ export class Timer {
     
     clickPrev(){
         this.prev.emit();
+        this.initTimer();
     }
     
     clickNext(){
-        this.next.emit(); 
+        this.next.emit();
+        this.initTimer();
     }
            
     toggle(){
