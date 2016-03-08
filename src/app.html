@@ -1,0 +1,36 @@
+<div class="site-wrapper">
+    <div class="site-wrapper-inner">
+    <div class="cover-container">
+        <div class="masthead clearfix">
+        <div class="inner">
+            <h3 class="masthead-brand">Mob Timer</h3>
+            <nav>
+            <ul class="nav masthead-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="https://github.com/attila226/MobTimer" target="_blank">GitHub</a></li>
+            </ul>
+            </nav>
+        </div>
+        </div>
+        <div id="options">
+        <moblist (mobberSelected)="currentMobberUpdated($event)" #m></moblist>
+            <hr />
+        <interval (selectEvent)="intervalUpdated($event)"></interval>
+        </div>
+        <div class="inner cover">
+            <header>
+                <h1 *ngIf="selectedMobber === ''">Add a Mobber</h1>
+                <h1 *ngIf="selectedMobber !== ''">{{selectedMobber}}'s Turn</h1>
+            </header>
+            <timer [min]="selectedTimeInterval" (next)="m.next()" (prev)="m.prev()" ></timer>
+        </div>
+
+        <div class="mastfoot">
+        <div class="inner">
+            <p>Mob Timer for agile mob programmers, by <a href="https://twitter.com/Attila226" target="_blank">Attila</a> & <a href="http://aaronkantrowitz.com" target="_blank">Aaron</a>.</p>
+        </div>
+        </div>
+        
+    </div>
+    </div>
+</div>
