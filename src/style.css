@@ -152,6 +152,16 @@ moblist .selected {
 
   .masthead-nav {
     float: right; } }
+@media (max-width: 768px) {
+  timer .play-pause {
+    font-size: 72px; }
+  timer .glyphicon-step-forward, timer .glyphicon-step-backward {
+    font-size: 40px; }
+  timer .timer-text {
+    font-size: 56px; }
+  timer .button-text {
+    margin-top: -25px;
+    font-size: 24px; } }
 /*
  * Cover
  */

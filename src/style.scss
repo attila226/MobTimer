@@ -185,6 +185,37 @@ moblist {
   }
 }
 
+@media (max-width: 768px) {
+        timer {
+        // .timer-container {
+        //     padding-top: 15%;
+        // }
+        // .timer-icons {
+        //     top: 50%;
+        //     transform: translateY(-50%);
+        // }
+        .play-pause {
+            font-size: 72px;
+        }
+        .glyphicon-step-forward, .glyphicon-step-backward {
+            font-size: 40px;
+        }
+
+        // .glyphicon-pause {
+        //     padding-left: 16px; 
+        // }
+
+        .timer-text {
+            font-size: 56px;
+        }
+        
+        .button-text {
+            margin-top: -25px;
+            font-size: 24px;
+        }
+    } 
+}
+
 /*
  * Cover
  */
